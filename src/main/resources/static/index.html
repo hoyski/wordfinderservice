@@ -1,0 +1,57 @@
+<html>
+
+<head>
+	<title>Word Finder</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+	<meta charset="UTF-8">
+
+	<style>
+		body {
+			font-family: verdana;
+			font-size: 20pt;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		button {
+			font: inherit;
+		}
+
+		.foundword {
+			font-family: courier;
+			font-size: 20pt;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>Word Finder</h1>
+	<p>Enter letters to find all English words, three letters or longer, that can be made from
+		the letters.</p>
+	<div id="app">
+		Letters:
+		<input @input="getWords" v-model="characters" id="charactersInput" class="foundword" /> <button @click="clear">Clear</button>
+		<br />
+		<br />
+		<span v-show="badRequest == true">{{ errorMsg }}</span>
+		<span v-show="badRequest == false">Words that can be made from these letters: 
+			<span v-show="indexOfFirst > 0"><button @click="prev">Prev</button></span> 
+			<span v-show="totalFound > words.length">( {{ indexOfFirst + 1 }} to {{ indexOfFirst + words.length }} of {{ totalFound }} )</span>
+			<span v-show="indexOfFirst == 0 && words.length > 0 && totalFound == words.length">( {{ totalFound }} total )</span>
+			<span v-show="(indexOfFirst + words.length) &lt; totalFound"><button @click="next">Next</button></span>
+			<br /><br />
+			<span class="foundword" v-for="word in words">{{ word }} </span>
+		</span>
+	</div>
+
+	<script src="vue.min.js"></script>
+
+	<script src="main.js"></script>
+
+</body>
+
+</html>
