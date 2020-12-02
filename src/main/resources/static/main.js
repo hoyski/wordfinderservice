@@ -13,6 +13,14 @@ var app = new Vue({
 	mounted: function () {
 		document.getElementById("charactersInput").focus();
 	},
+	computed: {
+		isPrevDisabled: function() {
+			return this.indexOfFirst == 0;
+		},
+		isNextDisabled: function() {
+			return !((this.indexOfFirst + this.words.length) < this.totalFound);
+		}
+	},
 	methods: {
 		getWords: function () {
 			// Remove invalid characters from 'characters'
