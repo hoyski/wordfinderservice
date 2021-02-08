@@ -11,8 +11,9 @@
 	</parent>
 	<groupId>com.hoyski</groupId>
 	<artifactId>wordfinderservice</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<name>WordFinderService</name>
+	<packaging>war</packaging>
 	<description>Services and Web UI to find English words that can be made from given characters</description>
 
 	<properties>
@@ -33,6 +34,12 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
@@ -51,6 +58,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>wordfinder</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
