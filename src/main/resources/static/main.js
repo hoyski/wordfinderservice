@@ -67,12 +67,16 @@ var app = new Vue({
 
 					// Right pad with non-breaking spaces each word to be as long as the longest word
 					// so that they'll stay aligned when wrapped
+					/*
+
+					No longer needed since words are divided into sections by length
 					if (this.words && this.words.length > 0) {
 						var longestWord = this.words[this.words.length - 1].length;
 						for (var i = 0; i < this.words.length; ++i) {
 							this.words[i] = this.words[i].padEnd(longestWord, '\xA0');
 						}
 					}
+					*/
 				})
 		},
 		prev: function () {

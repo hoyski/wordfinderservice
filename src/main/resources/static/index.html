@@ -30,7 +30,10 @@
 				<span
 					v-show="totalFound > 0"><button class="btn btn-outline-dark" @click="next" :disabled="isNextDisabled">Next</button></span> <br /> <br />
 				<div>
-					<span class="text-monospace" v-for="word in words">{{ word }} </span>
+					<span class="text-monospace" v-for="(word, index) in words" :key="index">
+						<hr v-if="index > 0 && words[index].length > 3 && words[index - 1].length != words[index].length"/>
+						{{ word }}
+					</span>
 				</div>
 			</div>
 		</div>
