@@ -1,8 +1,13 @@
+
+# Ignore static folder. It's contents come from wordfinder-vue
+src/main/resources/static/**
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
+#!**/src/main/**
 !**/src/test/**
+
 
 ### STS ###
 .apt_generated
